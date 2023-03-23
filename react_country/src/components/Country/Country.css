@@ -1,0 +1,9 @@
+.modify{
+    display: flex;
+}
+.style{
+    border: 2px solid paleturquoise;
+    background-color: antiquewhite;
+    margin: 10px;
+    padding: 20px;
+}
