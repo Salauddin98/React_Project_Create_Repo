@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {
+  addToDb,
+  deleteShoppingCart,
+  getShoppingCart,
+} from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -12,10 +19,30 @@ const Shop = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  useEffect(() => {
+    const storeCart = getShoppingCart();
+    const saveCart = [];
+    for (const id in storeCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        const quantity = storeCart[id];
+        addedProduct.quantity = quantity;
+        saveCart.push(addedProduct);
+      }
+    }
+    setCart(saveCart);
+  });
+
+  const handleClearCart = () => {
+    setCart([]);
+    deleteShoppingCart();
+  };
+
   const addToCart = (product) => {
     // console.log(product);
     const newCart = [...cart, product];
     setCart(newCart);
+    addToDb(product.id);
   };
   return (
     <div className="shop-container">
@@ -29,8 +56,11 @@ const Shop = () => {
         ))}
       </div>
       <div className="card-container">
-        <h1>products summery</h1>
-        <p>Number of product: {cart.length}</p>
+        <Cart handleClearCart={handleClearCart} cart={cart}>
+          <Link className="proceed-link" to="/order">
+            <button className="btn-proceed">Review Order</button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );
