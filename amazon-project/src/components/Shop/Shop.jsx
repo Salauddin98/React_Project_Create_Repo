@@ -31,7 +31,7 @@ const Shop = () => {
       }
     }
     setCart(saveCart);
-  });
+  }, [products]);
 
   const handleClearCart = () => {
     setCart([]);
