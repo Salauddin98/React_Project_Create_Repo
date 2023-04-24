@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <section className="mt-10">
-      <div className="flex items-center justify-between container mx-auto p-4">
-        <div>
+      <div className="lg:flex items-center justify-between container mx-auto p-4">
+        <div className="mb-20 md:mb-16 lg:mb-0">
           <span className="font-bold mb-2 badge badge-secondary">
             On Sale !
           </span>
@@ -16,7 +16,7 @@ const Home = () => {
             A reader lives a <br className="hidden md:block" /> thousand lives{" "}
             <span className="inline-block text-blue-400"> before he dies</span>
           </h1>
-          <p className="text-base text-gray-700 md:text-lg w-3/5 font-semibold mt-4">
+          <p className="text-base text-gray-700 md:text-lg lg:w-3/5 font-semibold mt-4">
             Books are a uniquely portable magic. Books serve to show a man that
             those original thoughts of his aren’t very new after all. The man
             who does not read good books is no better than the man who can’t.

@@ -50,7 +50,7 @@ const Shop = () => {
         {products.map((product) => (
           <Product
             addToCart={addToCart}
-            {...product}
+            product={product}
             key={product.id}
           ></Product>
         ))}

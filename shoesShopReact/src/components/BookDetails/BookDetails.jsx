@@ -26,7 +26,7 @@ const BookDetails = () => {
           />
         </div>
         {/* Details Container */}
-        <div className=" p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2">
+        <div className=" p-4 bg-white lg:p-16 lg:pl-10 lg:w-1/2">
           <div>
             <p className="badge">Brand new</p>
           </div>
